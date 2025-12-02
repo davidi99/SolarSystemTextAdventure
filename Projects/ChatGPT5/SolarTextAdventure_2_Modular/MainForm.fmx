@@ -1,0 +1,186 @@
+// Delphi FMX Designer Markup (paste via View as Text)
+object FrmMain: TFrmMain
+  StyleBook = StyleBook1
+  Caption = 'Solar Text Adventure'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnKeyUp = FormKeyUp
+  object StyleBook1: TStyleBook
+  end
+  object TopBar: TToolBar
+    Align = Top
+    Height = 48
+    object BtnMenu: TSpeedButton
+      Position.X = 8
+      Text = '☰'
+      OnClick = BtnMenuClick
+    end
+    object LblTitle: TLabel
+      Align = Contents
+      Text = 'Solar Text Adventure'
+      TextSettings.HorzAlign = Center
+      TextSettings.Font.Size = 18
+    end
+  end
+  object Tabs: TTabControl
+    Align = Client
+    TabIndex = 0
+    object TabStory: TTabItem
+      Text = 'Story'
+      object MemoStory: TMemo
+        Align = Top
+        Height = 260
+        ReadOnly = True
+      end
+      object ListChoices: TListBox
+        Align = Client
+        OnItemClick = ListChoicesItemClick
+      end
+      object BottomBar: TLayout
+        Align = Bottom
+        Height = 56
+        object EdtCommand: TEdit
+          Align = Client
+          TextPrompt = 'Type a command (help, scan, status, save, load, go <id>)'
+          OnKeyUp = EdtCommandKeyUp
+        end
+        object BtnSend: TButton
+          Align = Right
+          Width = 80
+          Text = 'Go'
+          OnClick = BtnSendClick
+        end
+      end
+    end
+    object TabMap: TTabItem
+      Text = 'Star Map'
+      object MapRoot: TLayout
+        Align = Client
+        Margins.Rect = (10,10,10,10)
+        object PaintMap: TPaintBox
+          Align = Client
+          OnPaint = PaintMapPaint
+          OnMouseUp = PaintMapMouseUp
+          OnMouseMove = PaintMapMouseMove
+          object Glow: TGlowEffect
+            Softness = 0.5
+            Opacity = 0.5
+          end
+        end
+      end
+      object MapTimer: TTimer
+        Interval = 33
+        Enabled = True
+        OnTimer = MapTimerTimer
+      end
+    end
+    object TabCodex: TTabItem
+      Text = 'Codex'
+      object LV_Codex: TListView
+        Align = Left
+        Width = 280
+        OnItemClick = LV_CodexItemClick
+      end
+      object CodexDetailPanel: TLayout
+        Align = Client
+        Padding.Rect = (10,10,10,10)
+        object CodexTitle: TLabel
+          Align = Top
+          TextSettings.Font.Size = 18
+          Text = 'Codex'
+        end
+        object CodexText: TMemo
+          Align = Client
+          ReadOnly = True
+          WordWrap = True
+        end
+      end
+    end
+    object TabAch: TTabItem
+      Text = 'Achievements'
+      object LV_Ach: TListView
+        Align = Client
+      end
+    end
+    object TabSettings: TTabItem
+      Text = 'Settings'
+      object Label1: TLabel
+        Position.X = 12
+        Position.Y = 12
+        Text = 'Theme & Effects'
+        TextSettings.Font.Size = 16
+      end
+      object SwitchTheme: TSwitch
+        Position.X = 12
+        Position.Y = 44
+        IsChecked = True
+        OnSwitch = SwitchThemeSwitch
+      end
+      object LabelTheme: TLabel
+        Position.X = 70
+        Position.Y = 46
+        Text = 'Use Custom Style'
+      end
+      object BtnApplyTheme: TButton
+        Position.X = 12
+        Position.Y = 82
+        Text = 'Apply / Reload Style'
+        OnClick = BtnApplyThemeClick
+      end
+      object SwitchSound: TSwitch
+        Position.X = 12
+        Position.Y = 130
+        IsChecked = True
+        OnSwitch = SwitchSoundSwitch
+      end
+      object LabelSound: TLabel
+        Position.X = 70
+        Position.Y = 132
+        Text = 'Sound FX'
+      end
+      object SwitchParticles: TSwitch
+        Position.X = 12
+        Position.Y = 168
+        IsChecked = True
+        OnSwitch = SwitchParticlesSwitch
+      end
+      object LabelParticles: TLabel
+        Position.X = 70
+        Position.Y = 170
+        Text = 'Particle FX'
+      end
+    end
+  end
+  object Toast: TLayout
+    Align = Bottom
+    Height = 40
+    Visible = False
+    Opacity = 0
+    HitTest = False
+    object ToastLbl: TLabel
+      Align = Contents
+      Text = 'Toast'
+      TextSettings.HorzAlign = Center
+      TextSettings.Font.Style = [TFontStyle.fsBold]
+    end
+    object FadeIn: TFloatAnimation
+      PropertyName = 'Opacity'
+      StartValue = 0
+      StopValue = 1
+      Duration = 0.2
+      Trigger = 'IsVisible=True'
+      TriggerInverse = 'IsVisible=False'
+    end
+    object FadeOut: TFloatAnimation
+      PropertyName = 'Opacity'
+      StartValue = 1
+      StopValue = 0
+      Duration = 0.6
+      Delay = 1.2
+    end
+  end
+  object SndClick: TMediaPlayer
+  end
+  object SndAchievement: TMediaPlayer
+  end
+end

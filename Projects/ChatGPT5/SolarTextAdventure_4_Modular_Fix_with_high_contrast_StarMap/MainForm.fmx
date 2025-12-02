@@ -1,0 +1,363 @@
+object FrmMain: TFrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Solar Text Adventure'
+  ClientHeight = 480
+  ClientWidth = 640
+  StyleBook = StyleBook1
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnKeyUp = FormKeyUp
+  DesignerMasterStyle = 0
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 400
+    Top = 168
+  end
+  object TopBar: TToolBar
+    Size.Width = 640.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object BtnMenu: TSpeedButton
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Text = 'Game'
+      OnClick = BtnMenuClick
+    end
+    object LblTitle: TLabel
+      Align = Contents
+      Size.Width = 640.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Solar Text Adventure'
+    end
+  end
+  object Tabs: TTabControl
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 432.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = Top
+    Sizes = (
+      640s
+      406s
+      640s
+      406s
+      640s
+      406s
+      640s
+      406s
+      640s
+      406s)
+    object TabStory: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 48.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Story'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 50.000000000000000000
+      object MemoStory: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        ReadOnly = True
+        Align = Top
+        Size.Width = 640.000000000000000000
+        Size.Height = 260.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 636.000000000000000000
+        Viewport.Height = 256.000000000000000000
+      end
+      object ListChoices: TListBox
+        Align = Client
+        Size.Width = 640.000000000000000000
+        Size.Height = 90.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 636.000000000000000000
+        Viewport.Height = 86.000000000000000000
+      end
+      object BottomBar: TLayout
+        Align = Bottom
+        Position.Y = 350.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 56.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object EdtCommand: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          Size.Width = 560.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = 'Type a command (help, scan, status, save, load, go <id>)'
+          OnKeyUp = EdtCommandKeyUp
+        end
+        object BtnSend: TButton
+          Align = Right
+          Position.X = 560.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Go'
+          OnClick = BtnSendClick
+        end
+      end
+    end
+    object TabMap: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 68.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Star Map'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 50.000000000000000000
+      object MapRoot: TLayout
+        Align = Client
+        Size.Width = 640.000000000000000000
+        Size.Height = 406.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object PaintMap: TPaintBox
+          Align = Client
+          Size.Width = 640.000000000000000000
+          Size.Height = 406.000000000000000000
+          Size.PlatformDefault = False
+          OnMouseMove = PaintMapMouseMove
+          OnMouseUp = PaintMapMouseUp
+          OnPaint = PaintMapPaint
+          object Glow: TGlowEffect
+            Softness = 0.500000000000000000
+            GlowColor = claGold
+            Opacity = 0.500000000000000000
+          end
+        end
+      end
+      object MapTimer: TTimer
+        Interval = 33
+        OnTimer = MapTimerTimer
+        Left = 488
+        Top = 168
+      end
+    end
+    object TabCodex: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 54.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Codex'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 50.000000000000000000
+      object LV_Codex: TListView
+        ItemAppearanceClassName = 'TListItemAppearance'
+        ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Left
+        Size.Width = 280.000000000000000000
+        Size.Height = 406.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnItemClick = LV_CodexItemClick
+      end
+      object CodexDetailPanel: TLayout
+        Align = Client
+        Padding.Left = 10.000000000000000000
+        Padding.Top = 10.000000000000000000
+        Padding.Right = 10.000000000000000000
+        Padding.Bottom = 10.000000000000000000
+        Size.Width = 360.000000000000000000
+        Size.Height = 406.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object CodexTitle: TLabel
+          Align = Top
+          Position.X = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 340.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          Text = 'Codex'
+        end
+        object CodexText: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          ReadOnly = True
+          TextSettings.WordWrap = True
+          Align = Client
+          Size.Width = 340.000000000000000000
+          Size.Height = 369.000000000000000000
+          Size.PlatformDefault = False
+          Viewport.Width = 336.000000000000000000
+          Viewport.Height = 365.000000000000000000
+        end
+      end
+    end
+    object TabAch: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 94.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Achievements'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 50.000000000000000000
+      object LV_Ach: TListView
+        ItemAppearanceClassName = 'TListItemAppearance'
+        ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Client
+        Size.Width = 640.000000000000000000
+        Size.Height = 406.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+    end
+    object TabSettings: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 63.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Settings'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 50.000000000000000000
+      object Label1: TLabel
+        Position.X = 12.000000000000000000
+        Position.Y = 12.000000000000000000
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Theme & Effects'
+        TabOrder = 0
+      end
+      object SwitchTheme: TSwitch
+        IsChecked = True
+        Position.X = 12.000000000000000000
+        Position.Y = 44.000000000000000000
+        TabOrder = 1
+        OnSwitch = SwitchThemeSwitch
+      end
+      object LabelTheme: TLabel
+        Position.X = 117.000000000000000000
+        Position.Y = 44.000000000000000000
+        Text = 'Use Custom Style'
+        TabOrder = 2
+      end
+      object BtnApplyTheme: TButton
+        Position.X = 12.000000000000000000
+        Position.Y = 82.000000000000000000
+        Size.Width = 159.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Apply / Reload Style'
+        OnClick = BtnApplyThemeClick
+      end
+      object SwitchSound: TSwitch
+        IsChecked = True
+        Position.X = 12.000000000000000000
+        Position.Y = 130.000000000000000000
+        TabOrder = 4
+        OnSwitch = SwitchSoundSwitch
+      end
+      object LabelSound: TLabel
+        Position.X = 117.000000000000000000
+        Position.Y = 130.000000000000000000
+        Text = 'Sound FX'
+        TabOrder = 5
+      end
+      object SwitchParticles: TSwitch
+        IsChecked = True
+        Position.X = 12.000000000000000000
+        Position.Y = 168.000000000000000000
+        TabOrder = 6
+        OnSwitch = SwitchParticlesSwitch
+      end
+      object LabelParticles: TLabel
+        Position.X = 117.000000000000000000
+        Position.Y = 170.000000000000000000
+        Text = 'Particle FX'
+        TabOrder = 7
+      end
+    end
+  end
+  object Toast: TLayout
+    Align = Bottom
+    Opacity = 0.000000000000000000
+    Size.Width = 50.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 2
+    object ToastLbl: TLabel
+      Align = Contents
+      Size.Width = 50.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Toast'
+    end
+    object FadeIn: TFloatAnimation
+      Duration = 0.200000002980232200
+      PropertyName = 'Opacity'
+      StartValue = 0.000000000000000000
+      StopValue = 1.000000000000000000
+      Trigger = 'IsVisible=True'
+      TriggerInverse = 'IsVisible=False'
+    end
+    object FadeOut: TFloatAnimation
+      Delay = 1.200000047683716000
+      Duration = 0.600000023841857900
+      PropertyName = 'Opacity'
+      StartValue = 1.000000000000000000
+      StopValue = 0.000000000000000000
+    end
+  end
+  object SndClick: TMediaPlayer
+    Left = 488
+    Top = 232
+  end
+  object SndAchievement: TMediaPlayer
+    Left = 384
+    Top = 232
+  end
+end

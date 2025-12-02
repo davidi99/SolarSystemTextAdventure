@@ -1,0 +1,250 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  Caption = 'Solar System Explorer'
+  ClientHeight = 768
+  ClientWidth = 1024
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object LayoutMain: TLayout
+    Align = Client
+    Size.Width = 1024.000000000000000000
+    Size.Height = 768.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object RectBackground: TRectangle
+      Align = Client
+      Fill.Kind = Gradient
+      Fill.Gradient.Points = <
+        item
+          Color = xFF001020
+          Offset = 0.000000000000000000
+        end
+        item
+          Color = xFF000510
+          Offset = 1.000000000000000000
+        end>
+      Fill.Gradient.StartPosition.X = 0.500000000000000000
+      Fill.Gradient.StopPosition.X = 0.500000000000000000
+      Size.Width = 1024.000000000000000000
+      Size.Height = 768.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object LayoutTop: TLayout
+        Align = Top
+        Size.Width = 1024.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object RectTitle: TRectangle
+          Align = Client
+          Fill.Color = xFF0A1828
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 1004.000000000000000000
+          Size.Height = 65.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claAqua
+          Stroke.Thickness = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          object LabelTitle: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 1004.000000000000000000
+            Size.Height = 65.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 28.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claAqua
+            TextSettings.HorzAlign = Center
+            Text = 'SOLAR SYSTEM EXPLORER'
+            TabOrder = 0
+            object GlowEffect1: TGlowEffect
+              Softness = 0.400000005960464500
+              GlowColor = xFF00DDFF
+              Opacity = 0.800000011920929000
+            end
+          end
+        end
+      end
+      object LayoutCenter: TLayout
+        Align = Client
+        Size.Width = 1024.000000000000000000
+        Size.Height = 488.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object RectStoryBg: TRectangle
+          Align = Client
+          Fill.Color = xFF0F1E2E
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 1004.000000000000000000
+          Size.Height = 478.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF0080FF
+          Stroke.Thickness = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          object MemoStory: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            ReadOnly = True
+            StyledSettings = []
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.FontColor = claWhite
+            TextSettings.WordWrap = True
+            Align = Client
+            Margins.Left = 15.000000000000000000
+            Margins.Top = 15.000000000000000000
+            Margins.Right = 15.000000000000000000
+            Margins.Bottom = 15.000000000000000000
+            Size.Width = 974.000000000000000000
+            Size.Height = 448.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Viewport.Width = 970.000000000000000000
+            Viewport.Height = 444.000000000000000000
+          end
+        end
+      end
+      object LayoutBottom: TLayout
+        Align = Bottom
+        Position.Y = 568.000000000000000000
+        Size.Width = 1024.000000000000000000
+        Size.Height = 200.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object RectConsole: TRectangle
+          Align = Top
+          Fill.Color = xFF0A1828
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 1004.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF00AA00
+          Stroke.Thickness = 1.500000000000000000
+          XRadius = 4.000000000000000000
+          YRadius = 4.000000000000000000
+          object LabelStats: TLabel
+            Align = Client
+            StyledSettings = []
+            Margins.Left = 10.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Size.Width = 984.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.FontColor = claLime
+            Text = 'Locations Discovered: 0 | Current: EARTH_ORBIT'
+            TabOrder = 0
+          end
+        end
+        object BtnOption1: TButton
+          Align = Top
+          StyledSettings = []
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 45.000000000000000000
+          Size.Width = 1004.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Option 1'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claYellow
+          OnClick = BtnOption1Click
+        end
+        object BtnOption2: TButton
+          Align = Top
+          StyledSettings = []
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 83.000000000000000000
+          Size.Width = 1004.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = 'Option 2'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claYellow
+          OnClick = BtnOption2Click
+        end
+        object BtnOption3: TButton
+          Align = Top
+          StyledSettings = []
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 121.000000000000000000
+          Size.Width = 1004.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Option 3'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claYellow
+          OnClick = BtnOption3Click
+        end
+        object BtnOption4: TButton
+          Align = Top
+          StyledSettings = []
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 159.000000000000000000
+          Size.Width = 1004.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          Text = 'Option 4'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claYellow
+          OnClick = BtnOption4Click
+        end
+      end
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 952
+    Top = 8
+  end
+  object FloatAnimation1: TFloatAnimation
+    Duration = 2.000000000000000000
+    Loop = True
+    PropertyName = 'GlowEffect1.Opacity'
+    StartValue = 0.400000005960464500
+    StopValue = 1.000000000000000000
+    Left = 888
+    Top = 8
+  end
+end

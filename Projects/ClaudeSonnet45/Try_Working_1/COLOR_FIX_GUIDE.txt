@@ -1,0 +1,31 @@
+# QUICK COLOR FIX GUIDE
+
+If the memo background appears white instead of dark:
+
+## Option 1: Use Form Designer (Easiest)
+1. Open the project in Delphi 13
+2. View the form (F12)
+3. Click on `RectStoryBg` (the rectangle behind the memo)
+4. In Object Inspector, find `Fill.Color`
+5. Change it to a darker color like `$FF000000` (black) or `$FF0A1828` (dark blue)
+6. The white text should now be visible
+
+## Option 2: Adjust Text Color Instead
+1. Open the form designer
+2. Click on `MemoStory`
+3. In Object Inspector, find `TextSettings.FontColor`
+4. Change it to `claBlack` (if background is white) or keep `claWhite` (if background is dark)
+
+## Current Color Scheme
+- **Buttons**: Bold yellow text (`claYellow`) on dark blue background
+- **Memo Text**: White (`claWhite`)
+- **Memo Background**: Provided by `RectStoryBg` with color `$FF0F1E2E` (dark blue)
+- **Title**: Cyan (`$FF00FFFF`) with animated glow
+- **Stats**: Green (`$FF00FF00`)
+
+## Button Colors
+The buttons are set to have:
+- Text: Bright yellow (claYellow) with bold font
+- Background: Dark blue ($FF1A3A5A) - set in code via TintColor
+
+This should provide excellent contrast and readability!
